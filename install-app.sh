@@ -2,21 +2,18 @@
 
 apt-get update -yq
 apt-get install -yq python3 python3-venv python3-pip git
+python3 -m venv venv
 
 mkdir -p /app
 
 git clone https://github.com/whatislavx/devops_todolist_terraform_task.git /tmp/todolist
-
 cp -r /tmp/todolist/app/* /app
 
-python3 -m venv /app/venv
-source /app/venv/bin/activate
+cd /app
 
-pip install --upgrade pip
-pip install -r /app/requirements.txt
+chmod +x start.sh
 
-mv /app/todoapp.service /etc/systemd/system/
-
+mv todoapp.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable todoapp
 systemctl start todoapp
