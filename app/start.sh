@@ -2,8 +2,8 @@
 
 source /app/venv/bin/activate
 
-pip install --upgrade pip
-pip install -r /app/requirements.txt
-python /app/manage.py migrate
+/app/venv/bin/python -m pip install --upgrade pip
+/app/venv/bin/python -m pip install -r /app/requirements.txt
+/app/venv/bin/python /app/manage.py migrate
 
-python /app/manage.py runserver 0.0.0.0:8080
+exec /app/venv/bin/python /app/manage.py runserver 0.0.0.0:8080

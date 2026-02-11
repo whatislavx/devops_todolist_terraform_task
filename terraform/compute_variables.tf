@@ -1,20 +1,25 @@
 variable "vm_name" {
-  type = string
+  description = "Name of the virtual machine."
+  type        = string
 }
 
 variable "vm_size" {
-  type = string
+  description = "Size/SKU of the virtual machine."
+  type        = string
 }
 
 variable "admin_username" {
-  type = string
+  description = "Admin username for the virtual machine."
+  type        = string
 }
 
 variable "script_file" {
-  type = string
+  description = "Path to the bootstrap script used on the VM."
+  type        = string
 }
 
 variable "ssh_key_public_path" {
-  type    = string
-  default = "../id_rsa_azure.pub"
+  description = "Path to the SSH public key file."
+  type        = string
+  default     = "../id_rsa_azure.pub"
 }

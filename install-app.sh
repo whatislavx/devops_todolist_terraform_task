@@ -13,7 +13,7 @@ cp -r /tmp/todolist/app/* /app
 cd /app
 
 chmod +x start.sh
-mv todoapp.service /etc/systemd/system/
+cp /tmp/todolist/todoapp.service /etc/systemd/system/todoapp.service
 systemctl daemon-reload
 systemctl enable todoapp
 systemctl start todoapp

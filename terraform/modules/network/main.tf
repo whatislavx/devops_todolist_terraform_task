@@ -35,7 +35,7 @@ locals {
 }
 
 resource "azurerm_network_security_group" "nsg" {
-  name                = var.nsg_name
+  name                = var.network_security_group_name
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -62,10 +62,10 @@ resource "azurerm_subnet_network_security_group_association" "subnet_nsg_assoc" 
 }
 
 resource "azurerm_public_ip" "public_ip" {
-  name                = var.public_ip_name
+  name                = var.public_ip_address_name
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Dynamic"
   sku                 = "Standard"
-  domain_name_label   = "${var.dns_label_prefix}-${random_string.dns_suffix.result}"
+  domain_name_label   = "${var.dns_label}${random_string.dns_suffix.result}"
 }

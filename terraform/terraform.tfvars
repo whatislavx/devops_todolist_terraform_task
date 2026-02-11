@@ -1,13 +1,13 @@
 # Network configuration variables
-resource_group_name   = "mate-azure-task-12"
-location              = "francecentral"
-virtual_network_name  = "vnet"
-vnet_address_prefix   = "10.0.0.0/16"
-subnet_address_prefix = "10.0.0.0/24"
-subnet_name           = "default"
-nsg_name              = "defaultnsg"
-public_ip_name        = "linuxboxpip"
-dns_label_prefix      = "matetask"
+resource_group_name         = "mate-azure-task-12"
+location                    = "uksouth"
+virtual_network_name        = "vnet"
+vnet_address_prefix         = "10.0.0.0/16"
+subnet_address_prefix       = "10.0.0.0/24"
+subnet_name                 = "default"
+network_security_group_name = "defaultnsg"
+public_ip_address_name      = "linuxboxpip"
+dns_label                   = "matetask"
 
 # Compute configuration variables
 vm_name             = "matebox"

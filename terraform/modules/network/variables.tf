@@ -22,14 +22,14 @@ variable "subnet_name" {
   type = string
 }
 
-variable "nsg_name" {
+variable "network_security_group_name" {
   type = string
 }
 
-variable "public_ip_name" {
+variable "public_ip_address_name" {
   type = string
 }
 
-variable "dns_label_prefix" {
+variable "dns_label" {
   type = string
 }
