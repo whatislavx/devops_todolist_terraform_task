@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 apt-get update -yq
 apt-get install -yq python3 python3-venv python3-pip git
@@ -12,7 +13,6 @@ cp -r /tmp/todolist/app/* /app
 cd /app
 
 chmod +x start.sh
-
 mv todoapp.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable todoapp

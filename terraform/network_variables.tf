@@ -29,3 +29,7 @@ variable "nsg_name" {
 variable "public_ip_name" {
   type = string
 }
+
+variable "dns_label_prefix" {
+  type = string
+}

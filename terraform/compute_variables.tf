@@ -14,7 +14,7 @@ variable "script_file" {
   type = string
 }
 
-variable "ssh_public_key_file" {
+variable "ssh_key_public_path" {
   type    = string
   default = "../id_rsa_azure.pub"
 }

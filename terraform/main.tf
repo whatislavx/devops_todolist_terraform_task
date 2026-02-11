@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "3.105.0"
     }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.6.2"
+    }
   }
 }
 
@@ -31,6 +35,7 @@ module "network" {
   vnet_address_prefix   = var.vnet_address_prefix
   subnet_address_prefix = var.subnet_address_prefix
   public_ip_name        = var.public_ip_name
+  dns_label_prefix      = var.dns_label_prefix
 }
 
 module "compute" {
@@ -39,7 +44,7 @@ module "compute" {
   vm_name             = var.vm_name
   vm_size             = var.vm_size
   admin_username      = var.admin_username
-  ssh_public_key      = file(var.ssh_public_key_file)
+  ssh_public_key      = file(var.ssh_key_public_path)
   script_file         = var.script_file
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location

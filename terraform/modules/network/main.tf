@@ -5,6 +5,13 @@ resource "azurerm_virtual_network" "vnet" {
   resource_group_name = var.resource_group_name
 }
 
+resource "random_string" "dns_suffix" {
+  length  = 6
+  upper   = false
+  numeric = true
+  special = false
+}
+
 resource "azurerm_subnet" "subnet" {
   name                 = var.subnet_name
   resource_group_name  = var.resource_group_name
@@ -58,7 +65,7 @@ resource "azurerm_public_ip" "public_ip" {
   name                = var.public_ip_name
   location            = var.location
   resource_group_name = var.resource_group_name
-  allocation_method   = "Static"
+  allocation_method   = "Dynamic"
   sku                 = "Standard"
-  domain_name_label   = "matetask-54893"
+  domain_name_label   = "${var.dns_label_prefix}-${random_string.dns_suffix.result}"
 }
