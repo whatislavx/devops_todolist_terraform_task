@@ -1,14 +1,22 @@
 #!/bin/bash
 
 apt-get update -yq
-apt-get install python3-pip -yq
+apt-get install -yq python3 python3-venv python3-pip git
 
-mkdir /app
+mkdir -p /app
 
-git clone https://github.com/<your-gh-username>/azure_task_12_deploy_app_with_vm_extention.git todolist
-cp -r ./todolist/app/* /app
+git clone https://github.com/whatislavx/devops_todolist_terraform_task.git /tmp/todolist
+
+cp -r /tmp/todolist/app/* /app
+
+python3 -m venv /app/venv
+source /app/venv/bin/activate
+
+pip install --upgrade pip
+pip install -r /app/requirements.txt
 
 mv /app/todoapp.service /etc/systemd/system/
+
 systemctl daemon-reload
-systemctl start todoapp
 systemctl enable todoapp
+systemctl start todoapp
