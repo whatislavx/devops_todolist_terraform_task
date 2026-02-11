@@ -1,5 +1,9 @@
-#! /bin/bash 
+#!/bin/bash
 
-pip install -r requirements.txt
-python3 manage.py migrate
-python3 manage.py runserver 0.0.0.0:8080
+source /app/venv/bin/activate
+
+pip install --upgrade pip
+pip install -r /app/requirements.txt
+python /app/manage.py migrate
+
+python /app/manage.py runserver 0.0.0.0:8080
